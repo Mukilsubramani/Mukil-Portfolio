@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
+        }
+        .profile-image {
+            width: 220px;
+            height: 220px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border: 3px solid rgba(59, 130, 246, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            color: #ffffff;
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3);
+        }
+        .social-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        .email-btn:hover {
+            background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+            transform: translateY(-3px);
+        }
+        .linkedin-btn:hover {
+            background: linear-gradient(135deg, #0077b5, #00a0dc) !important;
+            transform: translateY(-3px);
+        }
+        .whatsapp-btn:hover {
+            background: linear-gradient(135deg, #25d366, #128c7e) !important;
+            transform: translateY(-3px);
+        }
+        .github-btn:hover {
+            background: linear-gradient(135deg, #d47b22, #ab9415) !important;
+            transform: translateY(-3px);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff, #e5e5e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .accent-gradient {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+        .glass-effect {
+            background: rgba(59, 130, 246, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .profile-image {
+    border: 4px solid white; /* optional: border around image */
+
+}
+    p{
+        text-decoration: white;
+        margin-top: 4px;
+    }
+    .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.project-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: auto; /* pushes buttons to bottom */
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: none;
+    color: rgb(138, 219, 228);
+}
+h2{
+    display: block;
+    color: white;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+.exsub{
+    color: rgb(85, 85, 85);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+.projtitle{
+    margin: 1rem;
+    color: white;
+}
+.project-btn {
+    color: rgb(254, 254, 254);
+    border-color: rgb(163, 163, 163);
+}
+.btn-color-2 {
+    background: none;
+}
+
+.btn-color-1, .btn-color-2 {
+    border: rgb(255, 255, 255) 0.1rem solid; 
+}
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem;
+}
+button {
+    appearance: auto;
+    font-style: none;
+    font-variant-ligatures: none;
+    font-variant-caps: none;
+    font-variant-numeric: none;
+    font-variant-east-asian: none;
+    font-variant-alternates: ;
+    font-variant-position: ;
+    font-variant-emoji: ;
+    font-weight: ;
+    font-stretch: ;
+    font-size: ;
+    font-family: ;
+    font-optical-sizing: ;
+    font-size-adjust: ;
+    font-kerning: ;
+    font-feature-settings: ;
+    font-variation-settings: ;
+    text-rendering: auto;
+    color: none;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: none;
+    margin: 0em 0em 0em 0em;
+    padding-block: 1px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+html{
+    scroll-behavior: smooth;
+}
+.contact-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+/* Left side */
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    text-align: left;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.contact-info p {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    font-size: 22px;
+    color: black;
+    margin-right: 15px;
+    display: inline-block;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+.social-icons a:hover {
+    background: black;
+    color: white;
+}
+
+/* Right side (Form) */
+.contact-form {
+    flex: 1;
+    background: rgba(35, 60, 106, 0.915);
+    padding: 25px;
+    border-radius: 12px;
+    color: white;
+    min-width: 320px;
+}
+
+.contact-form .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    color: black;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.btn-submit {
+    background: white;
+    color: black;
+    padding: 12px 25px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.btn-submit:hover {
+    background: rgb(50, 93, 98);
+    color: white;
+    border: 2px solid white;
+}
+
+    </style>
+</head>
+<body class="bg-slate-900 font-sans">
+    <!-- Header Section -->
+
+    <header class="gradient-bg text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <!-- Profile Picture -->
+             <!--
+            <div class="flex justify-center mb-8">
+                <div class="profile-image rounded-full shadow-2xl">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        -->
+            <!-- Profile Picture -->
+            <div class="flex justify-center mb-8">
+                <div class="profile-image rounded-full shadow-2xl overflow-hidden w-40 h-40">
+                     <img src="reimgport3.jpg" alt="Profile Picture" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <h1 class="text-6xl font-bold mb-6 text-gradient tracking-tight">MUKIL SUBRAMANI S G</h1>
+            <p class="text-2xl mb-8 text-gray-300 font-light tracking-wide">Software Developer & UI/UX Designer | Front-End Developer</p>
+            
+            <!-- Contact Links -->
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="mailto:mukilsubramani55@gmail.com" class="social-btn email-btn glass-effect px-8 py-4 rounded-full flex items-center space-x-3 text-white font-medium">
+                    <i class="fas fa-envelope text-lg"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://www.linkedin.com/in/mukil-subramani-35532a2a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BL98eDSMvREKvU1pgCC36Dg%3D%3D" target="_blank" class="social-btn linkedin-btn glass-effect px-8 py-4 rounded-full flex items-center space-x-3 text-white font-medium">
+                    <i class="fab fa-linkedin text-lg"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://wa.me/919342816076" target="_blank" class="social-btn whatsapp-btn glass-effect px-8 py-4 rounded-full flex items-center space-x-3 text-white font-medium">
+                    <i class="fab fa-whatsapp text-lg"></i>
+                    <span>WhatsApp</span>
+                </a>
+                <a href="https://github.com/Mukilsubramani" target="_blank" class="social-btn github-btn glass-effect px-8 py-4 rounded-full flex items-center space-x-3 text-white font-medium">
+                    <i class="fab fa-github text-lg"></i>
+                    <span>Github</span>
+                </a>
+            </div>
+            <div class="btn-container">
+                        <button class="btn btn-color-2 whitespace-nowrap text-white hover: text-sky-400 hover:border-sky-400" onclick="window.open('./file/mukil.resume.pdf')"> Download CV </button>
+                        <button class="btn btn-color-1 text-white hover: text-sky-400 hover:border-sky-400" onclick="location.href='#contact'">Contact Info</button>
+                        <!--<button class="btn text-white hover:text-sky-400 hover:border-sky-400">Download CV</button>
+                        <button class="btn text-white hover:text-sky-400 hover:border-sky-400">Contact Info</button>-->
+
+
+                    </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16">
+        <!-- About Section -->
+        <section id="about"   class="mb-20">
+            <div class="bg-slate-800 rounded-3xl shadow-2xl p-12 card-hover">
+                <h2 class="text-4xl font-bold text-white mb-8 text-center tracking-tight">About Me</h2>
+                <p class="text-gray-300 text-xl leading-relaxed text-center max-w-4xl mx-auto font-light">
+                    A passionate Computer Science (AIML) student with skills in C, C++, Python, Java, HTML, CSS, and JavaScript.
+Experienced in developing user-friendly applications, freelance editing, and delivering high-quality projects.
+Winner of hackathons and IoT competitions, with strong problem-solving and critical thinking abilities.
+Driven to create innovative solutions while continuously expanding technical expertise.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Education</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Bachelor's Degree</h3>
+                            <p class="text-gray-400 text-lg">K.Ramakrishnan College Of Engineering </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">CSE(AIML)</p>
+                    <p class="text-gray-400 mb-4">2023-2027 </p>
+                    <p class="text-gray-300 font-medium">CGPA: 7.67/10.0</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-university text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Higher Secondary Education</h3>
+                            <p class="text-gray-400 text-lg"> Sri Vageesha Vidhyashram Senior Secondary School </p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">Science – Computer Science Specialization</p>
+                    <p class="text-gray-400 mb-4">2022 - 2023</p>
+                    <p class="text-gray-300 font-medium">Percentage: 79% </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Achievements</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-trophy text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Excellence Award</h3>
+                    <p class="text-gray-300 mb-3 text-lg">IoT Innovation Award </p>
+                    <p class="text-gray-400 font-medium">2024</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Innovation Prize</h3>
+                    <p class="text-gray-300 mb-3 text-lg"> People Counter Innovation</p>
+                    <p class="text-gray-400 font-medium">2024</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-certificate text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Professional Certification</h3>
+                    <p class="text-gray-300 mb-3 text-lg">Web Development in Eduexpose</p>
+                    <p class="text-gray-400 font-medium">2025</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-star text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Leadership Recognition</h3>
+                    <p class="text-gray-300 mb-3 text-lg">Project Management Excellence</p>
+                    <p class="text-gray-400 font-medium">2025</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-award text-white text-3xl"></i>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white mb-4">Project Success Award</h3>
+                    <p class="text-gray-300 mb-3 text-lg">Personal Information Management System</p>
+                    <p class="text-gray-400 font-medium">2024</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover text-center">
+                    <div class="accent-gradient w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lightbulb text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Innovation Champion</h3>
+                    <p class="text-gray-300 mb-3 text-lg">Creative Problem Solving Hackathon</p>
+                    <p class="text-gray-400 font-medium">2024</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience"  class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Experience</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-briefcase text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Freelance Editor/Designer </h3>
+                            <p class="text-gray-400 text-lg">Freelance</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">Freelancer</p>
+                    <p class="text-gray-400 mb-4">2022 - Present</p>
+                    <p class="text-gray-300 font-medium">Delivered 10+ high-quality editing projects, managing deadlines and client satisfaction independently.</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-laptop-code text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Project Developer</h3>
+                            <p class="text-gray-400 text-lg">Private</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">Developer</p>
+                    <p class="text-gray-400 mb-4">2023 - 2024</p>
+                    <p class="text-gray-300 font-medium">Built secure data management app with encryption, ensuring accuracy and user-friendly design.</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-rocket text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Junior Position</h3>
+                            <p class="text-gray-400 text-lg">Design Hub</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">Designer</p>
+                    <p class="text-gray-400 mb-4">2023 - 2024</p>
+                    <p class="text-gray-300 font-medium">Started career with strong foundation in designing skills and quickly advanced through dedication and performance.</p>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <div class="accent-gradient p-4 rounded-2xl mr-6">
+                            <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-1">Internship</h3>
+                            <p class="text-gray-400 text-lg">Eduexpose</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-3 text-lg font-medium">Trainee</p>
+                    <p class="text-gray-400 mb-4">2 Months</p>
+                    <p class="text-gray-300 font-medium">Gained hands-on experience and learned industry best practices while contributing to real projects.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Skills</h2>
+            <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-code text-white text-xl"></i>
+                        </div >
+                       
+                        <span class="text-white font-semibold text-lg">HTML</span>
+                        <p class="text-white font-LIGHT text-1l"> Experience</p>
+                        
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <span class="text-white font-semibold text-lg">CSS</span>
+                        <p class="text-white font-LIGHT text-1l"> Experience</p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <span class="text-white font-semibold text-lg">JAVA SCRIPT</span>
+                        <p class="text-white font-LIGHT text-1l"> Experience</p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-lightbulb text-white text-xl"></i>
+                        </div>
+                        <span class="text-white font-semibold text-lg">FIGMA</span>
+                        <p class="text-white font-LIGHT text-1l"> Experience</p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-project-diagram text-white text-xl"></i>
+                        </div>
+                        <span class="text-white font-semibold text-lg">REACT JS</span>
+                        <p class="text-white font-LIGHT text-1l"> Basics</p>
+                    </div>
+                    <div class="flex items-center space-x-4 p-4 rounded-2xl bg-slate-700 hover:bg-slate-600 transition-colors">
+                        <div class="accent-gradient p-3 rounded-xl">
+                            <i class="fas fa-comments text-white text-xl"></i>
+                        </div>
+                        <span class="text-white font-semibold text-lg">REACT NATIVE</span>
+                        <p class="text-white font-LIGHT text-1l"> Basics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--PROJECTS-->
+        <section id="projects"   class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Projects</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="NEWS.png" alt="news" style="size: 50px;">
+                    </div>
+                    <h2 class="exsub projtitle">NEWS Tracker</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.figma.com/design/nAzjqSrI9dO9A01DXwGNKB/Untitled?node-id=0-1&t=ZpJaxxKXuDg6D5mT-1'">FIGMA</button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Mukilsubramani/news-tracker'">Github</button>
+
+                    </div>
+                </div>
+
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <h2 class="exsub projtitle"> Desktop </h2>
+                    <div class="flex items-center mb-6">
+                        <img src="ECOMMERCE.png" alt="E-commerce" style="size: 50px;">
+                    </div>
+                    <h2 class="exsub projtitle">E-commerce</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.figma.com/design/ZoMZCfOm8YuqXtPz2ARSeB/complete?node-id=0-1&t=Hl1QzOwB87gVg7qv-1'">FIGMA</button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Mukilsubramani/Ecommerce-'">Github</button>
+                        <br><br>
+                    </div>
+                    <div class="flex items-center mb-6">
+                        <img src="POSTOFF.png" alt="E-commerce" style="size: 50px;">
+                    </div>
+                    <h2 class="exsub projtitle">Post-Portal</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.figma.com/design/1AU9Xo5Oc40i0MbOGFGk8h/Untitled?node-id=0-1&t=LZrqZD7mM40emzqX-1'">FIGMA</button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Mukilsubramani/MUKIL-SUBRMANI-SG'">Github</button>
+
+                    </div>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="FITRACKING.png" alt="Fitness-tracker" style="size: 50px;">
+                    </div>
+                    <h2 class="exsub projtitle">Fitness Tracker</h2>
+                    <div class="btn-container">
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://www.figma.com/design/HsCUpOyZUPe3dPqKyRxD8h/mobile?node-id=0-1&t=lvCYvtnRqCla3yvB-1'">FIGMA</button>
+                        <button class="btn btn-color-2 project-btn" onclick="location.href='https://github.com/Mukilsubramani/Fitness-Tracker'">Github</button>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Certificates-->
+        <section id="certificates"   class="mb-20">
+            <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Certificates</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="bussiness_page-0001.jpg" alt="Bussiness" style="size: 50px;">
+                    </div>
+                    <h style="text-align: center; justify-content: center;" class="exsub projtitle">Bussiness Email</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="img19.jpg" alt="Eduexpose" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">Web Development</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="skillCrafttech_Certificate (1)_page-0001.jpg" alt="SkillCraftTechnology" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">UI/UX</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="forage_accenture_page-0001.jpg" alt="Accenture" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">Accenture</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="forage_aws_page-0001.jpg" alt="AWS" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">AWS</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="forge_tata2_page-0001.jpg" alt="tata" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">TATA</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="forage_tata_page-0001.jpg" alt="Data visual" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">Data Visualization</h>
+                </div>
+                <div class="bg-slate-800 rounded-3xl shadow-2xl p-10 card-hover">
+                <img src="Screenshot 2025-08-16 124747.png" alt="achine learning" style="size: 50px;"><br>
+                <h style="text-align: center; justify-content: center; padding-top: 10px;" class="exsub projtitle">Machine Learning</h>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Contact Section 
+        <section id="cont" class="text-center">
+            <div class="bg-slate-800 rounded-3xl shadow-2xl p-16 card-hover">
+                <h2 class="text-5xl font-bold text-white mb-8 tracking-tight">Let's Connect</h2>
+                <p class="text-gray-300 text-xl mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                    I'm always open to discussing new opportunities, collaborations, or just having a great conversation. 
+                    Feel free to reach out through any of the channels below and let's create something amazing together!
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <a href="mailto:mukilsubramani55@gmail.com" class="social-btn email-btn accent-gradient hover:shadow-2xl text-white px-10 py-5 rounded-2xl flex items-center space-x-4 shadow-xl font-semibold text-lg">
+                        <i class="fas fa-envelope text-2xl"></i>
+                        <span>mukilsubramani55@gmail.com</span>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/mukil-subramani-35532a2a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BL98eDSMvREKvU1pgCC36Dg%3D%3D" target="_blank" class="social-btn linkedin-btn accent-gradient hover:shadow-2xl text-white px-10 py-5 rounded-2xl flex items-center space-x-4 shadow-xl font-semibold text-lg">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                        <span>LinkedIn Profile</span>
+                    </a>
+                    
+                    <a href="https://wa.me/919342816076" target="_blank" class="social-btn whatsapp-btn accent-gradient hover:shadow-2xl text-white px-10 py-5 rounded-2xl flex items-center space-x-4 shadow-xl font-semibold text-lg">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span>WhatsApp Chat</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>-->
+    
+        <section class="contact-section" id="contact">
+  <h2 class="text-5xl font-bold text-center text-white mb-16 tracking-tight">Let's Connect</h2>
+  <div class="contact-container">
+    
+    <!-- Left Side -->
+    <div class="contact-info">
+      <h3 class="text-5xl font-bold text-white mb-8 tracking-tight">Get in Touch</h3>
+      <p class="text-gray-300 text-xl mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+        Have a project in mind or just want to connect?  
+        I’m always open to discussing new ideas, collaborations,  
+        or freelance opportunities. Let’s build something great together!
+      </p>
+      <div class="social-icons">
+        <a href="mailto:mukilsubramani55@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/mukil-subramani-35532a2a4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BL98eDSMvREKvU1pgCC36Dg%3D%3D" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/Mukilsubramani" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+
+    <!-- Right Side -->
+    <form class="contact-form" action="mailto:mukilsubramani55@gmail.com" method="post" enctype="text/plain">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
+      <div class="form-row">
+        <input type="text" name="phone" placeholder="Phone Number">
+        <input type="text" name="subject" placeholder="Email Subject">
+      </div>
+      <textarea name="message" placeholder="Message" rows="6" required></textarea>
+      <button type="submit" class="btn-submit">Send Message</button>
+    </form>
+  </div>
+</section>
+</main>
+    <!-- Footer -->
+    <footer class="gradient-bg text-white py-8 mt-20">
+        <footer>
+  <!--<div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>-->
+
+        <div class="container mx-auto px-6 text-center">
+            <p class="opacity-80">&copy; 2025 Mukil Subramani. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+    
